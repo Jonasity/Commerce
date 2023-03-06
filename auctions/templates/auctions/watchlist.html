@@ -1,0 +1,21 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Your Watchlist</h2>
+
+    {% if empty == True %}
+    <h3>No active listings found</h3>
+    {% else %}
+
+    {% for listing in products %}
+    <a href="{% url 'viewlisting' listing.id %}"><h3>{{ listing.title }}</h3></a>
+    <img src="{{ listing.image_link }}" alt="image of product" style="width:320px;height:180px;">
+    <h4>${{ listing.starting_bid }}</h4>
+    <h5>{{ listing.description }}</h5>
+    <h6>Seller: {{ listing.seller }}</h6>
+    <h7>Posted at: {{ listing.created_at }}</h7>
+
+    <br><br><br>
+    {% endfor %}
+    {% endif %}
+{% endblock %}

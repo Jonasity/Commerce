@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Closed Listings</h2>
+
+    {% if empty == True %}
+    <h3>No closed listings found</h3>
+    {% else %}
+
+    {% for listing in products %}
+    <h4>{{ listing.title }}</h4>
+    <h5>Winner: {{ listing.winner }}</h5>
+    <h6>Seller: {{ listing.seller }}</h6>
+    <h7>Price: {{ listing.price }}</h7>
+
+    <br><br><br>
+    {% endfor %}
+    {% endif %}
+{% endblock %}

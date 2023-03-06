@@ -1,0 +1,26 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+Product information
+<br><br>
+<form action="{% url 'createlisting' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <input type="text" name="title" placeholder="Product name"> <br>
+        <textarea name="description" placeholder="Product description"> </textarea> <br>
+        <input type="text" name="starting_bid" placeholder="Initial asking price"> <br>
+        <input type="text" name="image_link" placeholder="Image link"> <br>
+        <select name="category">
+            <option value="Food">Food</option>
+            <option value="Tech">Tech</option>
+            <option value="Decoration">Decoration</option>
+            <option value="Appliance">Appliance</option>
+            <option value="Random">Random</option>
+        </select>
+        <br>
+        <input type="submit" class="btn" value="Submit">
+    </div>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    {% if start == True %}
+    <h2>Choose your category</h2>
+
+    <form action="{% url 'categories' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <select name="cat">
+            <option value="Food">Food</option>
+            <option value="Tech">Tech</option>
+            <option value="Decoration">Decoration</option>
+            <option value="Appliance">Appliance</option>
+            <option value="Random">Random</option>
+        </select>
+        <br>
+        <input type="submit" class="btn" value="Submit">
+    </div>
+    </form>
+    {% else %}
+
+    <h2>Active Listings by chosen category</h2>
+
+    {% if empty == True %}
+    <h3>No active listings in category found</h3>
+    {% else %}
+
+    {% for listing in products %}
+    <a href="{% url 'viewlisting' listing.id %}"><h3>{{ listing.title }}</h3></a>
+    <img src="{{ listing.image_link }}" alt="image of product" style="width:320px;height:180px;">
+    <h4>${{ listing.starting_bid }}</h4>
+    <h5>{{ listing.description }}</h5>
+    <h6>Seller: {{ listing.seller }}</h6>
+    <h7>Posted at: {{ listing.created_at }}</h7>
+
+    <br><br><br>
+    {% endfor %}
+    {% endif %}
+    {% endif %}
+{% endblock %}
