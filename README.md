@@ -1,5 +1,6 @@
 # Commerce
 My solution of the CS50 commerce project
+Run with py manage.py runserver
 
 First up we have the login screen
 ![Screenshot 2023-03-08 183840](https://user-images.githubusercontent.com/56690175/223775354-4cf8167c-815b-412c-8a16-d65ee5f242fa.png)
