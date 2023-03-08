@@ -1,5 +1,5 @@
 # Commerce
-My solution of the CS50 commerce project
+My solution of the CS50 commerce project  
 Run with py manage.py runserver
 
 First up we have the login screen
